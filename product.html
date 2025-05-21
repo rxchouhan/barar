@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product Details - Barar.in</title> 
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="icon" href="images/favicon-barar.png" type="image/png">
+    <!-- Styles for product page are now fully in style.css -->
+</head>
+<body>
+    <header id="main-header" class="site-header">
+        <div class="container header-container">
+            <a href="index.html" class="site-logo">Barar<span class="logo-domain">.in</span></a>
+            <nav class="site-nav">
+                <ul>
+                    <li><a href="index.html#products" class="nav-link">All Products</a></li>
+                    <li><a href="index.html#contact" class="nav-link">Support</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="site-main">
+        <section class="product-detail-section">
+            <div class="container">
+                <a href="index.html#products" class="back-to-products-link"><i class="fas fa-arrow-left"></i> Back to Products</a>
+                
+                <div id="product-detail-content">
+                    <p class="loading-product-details">Loading product details...</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="main-footer" class="site-footer-bottom">
+        <div class="container">
+            <div class="footer-copyright">
+                <p>© <span id="current-year-product"></span> Barar.in. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        const allProductsData = [ 
+            { id: 'prod1', name: 'Clarity Suite', category: 'Productivity', description: 'Streamline your workflow with essential productivity tools. Includes a powerful word processor, versatile spreadsheet application, and dynamic presentation software. Optimized for collaboration and efficiency across all your devices.', price: 3499, imageUrl: 'https://via.placeholder.com/600x400/E8F0FE/0A58CA?text=Clarity+Suite', specs: ['Windows, macOS, Linux compatible', 'Cloud synchronization', 'Real-time collaboration', 'Offline access available'] },
+            { id: 'prod2', name: 'Guardian Shield', category: 'Security', description: 'Robust digital protection for peace of mind. Offers comprehensive defense against viruses, malware, ransomware, and phishing attacks. Features include a smart firewall, secure VPN, and identity theft protection.', price: 1299, imageUrl: 'https://via.placeholder.com/600x400/E6F4EA/1E8E3E?text=Guardian+Shield', specs: ['Real-time threat detection', 'Secure VPN (5GB/month)', 'Password manager', 'Regular security updates'] },
+            { id: 'prod3', name: 'Canvas Pro', category: 'Design', description: 'Professional-grade design software for creatives. Packed with advanced tools for vector illustration, photo editing, layout design, and typography. Perfect for creating stunning graphics for web and print.', price: 5499, imageUrl: 'https://via.placeholder.com/600x400/FEF7E0/F9AB00?text=Canvas+Pro', specs: ['Vector and raster editing', 'Advanced typography tools', 'CMYK and RGB support', 'Extensive brush library'] },
+            { id: 'prod4', name: 'DevCore IDE', category: 'Development', description: 'Next-gen IDE for efficient coding and development. Supports multiple languages, intelligent code completion, debugging tools, and seamless Git integration. Customizable interface and extensive plugin ecosystem.', price: 6999, imageUrl: 'https://via.placeholder.com/600x400/FCE8E6/D93025?text=DevCore+IDE', specs: ['Multi-language support (JS, Python, Java, C++)', 'Integrated debugger', 'Version control integration', 'AI-powered code suggestions'] },
+            { id: 'prod5', name: 'MotionCraft Editor', category: 'Design', description: 'Create stunning videos with an intuitive interface. Features timeline editing, special effects, color correction, audio mixing, and various export formats. Suitable for both beginners and professionals.', price: 4199, imageUrl: 'https://via.placeholder.com/600x400/F1F3F4/5F6368?text=MotionCraft', specs: ['4K video support', 'Timeline-based editing', 'Color grading tools', 'Motion graphics templates'] },
+            { id: 'prod6', name: 'VaultSync Backup', category: 'Productivity', description: 'Secure and reliable cloud backup for your data (Annual Subscription). Automated backups, end-to-end encryption, and easy file recovery. Protect your valuable files from loss or damage.', price: 899, imageUrl: 'https://via.placeholder.com/600x400/E1F5FE/0277BD?text=VaultSync', specs: ['Automated scheduled backups', 'End-to-end encryption', 'Cross-platform access', 'File versioning'] }
+        ];
+        const CURRENCY_SYMBOL = '₹';
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const productDetailContainer = document.getElementById('product-detail-content');
+            const currentYearSpanProduct = document.getElementById('current-year-product');
+            if(currentYearSpanProduct) currentYearSpanProduct.textContent = new Date().getFullYear();
+
+            const urlParams = new URLSearchParams(window.location.search);
+            const productId = urlParams.get('id');
+
+            if (productId) {
+                const product = allProductsData.find(p => p.id === productId);
+
+                if (product) {
+                    document.title = `${product.name} - Barar.in`;
+                    productDetailContainer.innerHTML = `
+                        <div class="product-detail-grid">
+                            <div class="product-detail-image-wrapper">
+                                <img src="${product.imageUrl}" alt="${product.name}" class="product-detail-image">
+                            </div>
+                            <div class="product-detail-info">
+                                <p class="product-category">${product.category}</p>
+                                <h1 class="product-title">${product.name}</h1>
+                                <p class="product-price">
+                                    <span class="currency-symbol">${CURRENCY_SYMBOL}</span>${product.price.toLocaleString('en-IN')}
+                                </p>
+                                <p class="product-detail-description">${product.description}</p>
+                                
+                                ${product.specs && product.specs.length > 0 ? `
+                                <div class="product-specs">
+                                    <h3>Key Features:</h3>
+                                    <ul>
+                                        ${product.specs.map(spec => `<li>${spec}</li>`).join('')}
+                                    </ul>
+                                </div>
+                                ` : ''}
+
+                                <div class="product-detail-actions">
+                                    <a href="index.html#contact" class="btn btn-primary">Enquire / Purchase</a>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                } else {
+                    document.title = "Product Not Found - Barar.in";
+                    productDetailContainer.innerHTML = '<p class="product-not-found">Sorry, the product you are looking for could not be found.</p>';
+                }
+            } else {
+                document.title = "Invalid Product - Barar.in";
+                productDetailContainer.innerHTML = '<p class="product-not-found">No product ID provided. Please select a product from our catalog.</p>';
+            }
+        });
+    </script>
+</body>
+</html>

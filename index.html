@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Barar.in - Your source for curated digital software, tools, and assets in India. Simple, secure, instant.">
+    <title>Barar.in - Modern Digital Products (₹)</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="icon" href="images/favicon-barar.png" type="image/png">
+</head>
+<body>
+    <div id="page-overlay" class="page-overlay"></div>
+
+    <header id="main-header" class="site-header">
+        <div class="container header-container">
+            <a href="index.html" class="site-logo">Barar<span class="logo-domain">.in</span></a>
+            <nav id="main-nav" class="site-nav">
+                <div class="mobile-nav-header"> <!-- This is the culprit if not hidden on desktop -->
+                    <a href="index.html" class="site-logo mobile-nav-logo">Barar<span class="logo-domain">.in</span></a>
+                    <button id="close-mobile-menu" class="close-mobile-menu-btn" aria-label="Close Menu">×</button>
+                </div>
+                <ul>
+                    <li><a href="#hero" class="nav-link active">Home</a></li>
+                    <li><a href="#products" class="nav-link">Products</a></li>
+                    <li><a href="#categories" class="nav-link">Categories</a></li>
+                    <li><a href="#features" class="nav-link">Features</a></li>
+                    <li><a href="#contact" class="nav-link">Support</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <button id="mobile-menu-toggle" aria-label="Toggle Menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- ... rest of your index.html content ... -->
+    <main class="site-main">
+        <section id="hero" class="hero-section">
+            <div class="container hero-content">
+                <h1 class="hero-title">Digital Tools, Simplified.</h1>
+                <p class="hero-subtitle">Curated software and assets for creators and professionals in India. <br>Instant access, transparent pricing.</p>
+                <a href="#products" class="btn btn-primary btn-hero">Explore Our Collection <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </section>
+
+        <section id="categories" class="categories-section section-padding">
+            <div class="container">
+                <h2 class="section-heading"><span>Browse Categories</span></h2>
+                <div class="category-grid">
+                    <div class="category-card active" data-category="All">
+                        <i class="fas fa-shapes"></i> All Products
+                    </div>
+                    <div class="category-card" data-category="Productivity">
+                        <i class="fas fa-rocket"></i> Productivity
+                    </div>
+                    <div class="category-card" data-category="Design">
+                        <i class="fas fa-pen-nib"></i> Design
+                    </div>
+                    <div class="category-card" data-category="Security">
+                        <i class="fas fa-shield-alt"></i> Security
+                    </div>
+                    <div class="category-card" data-category="Development">
+                        <i class="fas fa-code"></i> Development
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="products" class="products-section section-padding">
+            <div class="container">
+                <h2 class="section-heading"><span>Featured Products</span></h2>
+                <div id="product-grid" class="product-grid">
+                    <div class="loading-spinner">Loading products...</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="features" class="features-section section-padding">
+            <div class="container">
+                <h2 class="section-heading"><span>Why Barar.in?</span></h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon"><i class="fas fa-bolt-lightning"></i></div>
+                        <h3 class="feature-title">Instant Access</h3>
+                        <p class="feature-description">Get your software and assets immediately after purchase. No waiting.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon"><i class="fas fa-check-circle"></i></div>
+                        <h3 class="feature-title">Curated Quality</h3>
+                        <p class="feature-description">We handpick only the best, reliable digital tools for you.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon"><i class="fas fa-shield-halved"></i></div>
+                        <h3 class="feature-title">Secure & Transparent</h3>
+                        <p class="feature-description">Safe payments and clear, upfront pricing. No hidden fees.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon"><i class="fas fa-headset"></i></div>
+                        <h3 class="feature-title">Dedicated Support</h3>
+                        <p class="feature-description">Friendly assistance from our India-based support team.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact-section section-padding">
+            <div class="container">
+                <h2 class="section-heading"><span>Quick Support via WhatsApp</span></h2>
+                <p class="section-lead">Have a question or need assistance? We're just a message away!</p>
+                <div class="whatsapp-cta-container"> 
+                     <div class="whatsapp-icon-bg">
+                        <i class="fab fa-whatsapp"></i>
+                     </div>
+                     <h3 class="whatsapp-cta-heading">Chat With Us Directly</h3>
+                     <p class="whatsapp-cta-text">Click the button below to start a conversation on WhatsApp. Our team is ready to help you.</p>
+                     <a href="https://wa.me/918290179346?text=Hello%20Barar.in,%20I%20have%20a%20question." class="btn btn-primary btn-whatsapp-main" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-whatsapp"></i> Open WhatsApp Chat
+                     </a>
+                     <p class="whatsapp-availability">Typically replies within a few minutes.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="main-footer" class="site-footer-bottom">
+        <div class="container">
+            <div class="footer-content-grid">
+                <div class="footer-col footer-branding">
+                    <a href="index.html" class="site-logo">Barar<span class="logo-domain">.in</span></a>
+                    <p>Curated digital tools for modern India.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="careers.html">Careers</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="#contact">Contact Us</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-copyright">
+                <p>© <span id="current-year"></span> Barar.in. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <button id="scroll-to-top" class="scroll-to-top-btn" aria-label="Scroll to top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
